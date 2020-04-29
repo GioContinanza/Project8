@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include "Project8.h"
+#include <vector>
 
 using namespace std;
 
@@ -65,7 +66,7 @@ template < typename BS > void Bubble_Sort(BS *A, int N ) {
 
 
 int main () {
-    cout << "Project 8" << endl;
+    cout << "Project 8! \n" << endl;
 
     /*
      * Enter path for .cvs here
@@ -129,6 +130,14 @@ int main () {
     }
 
     cout << "\n\n- - - - - - - -\n\n" << endl;
+
+
+    vector<int> intV;
+
+    
+
+    vector<int> intV_B, intV_S, intV_M;
+
 
 
 }
