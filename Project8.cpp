@@ -7,6 +7,63 @@
 
 using namespace std;
 
+/*
+ * Merge Sort Template
+ */
+template< typename MS > void merge(MS l, MS farLeft, MS r, MS farRight, MS m) {
+
+    while (l != farLeft && r != farRight) {
+        if (*l < *r) {
+            *m++ = *l++;
+        }
+        else {
+            *m++ = *r++;
+        }
+    }
+
+    while (l != farLeft) {
+        *m++ = *l++;
+    }
+
+    while (r != farRight) {
+        *m++ = *r++;
+    }
+}
+
+template < typename MS > void merge_sort (MS first, MS last) {
+    if (last - first > 1) {
+        typedef typename std::iterator_traits<MS>::value_type value_type;
+        MS middle = first + (last - first) / 2;
+        std::vector<value_type> left_table(first, middle);
+        std::vector<value_type> right_table(middle, last);
+
+        // sort half
+        merge_sort(left_table.begin(), left_table.end());
+        merge_sort(right_table.begin(), right_table.end());
+
+        // merge to original
+        merge(left_table.begin(), left_table.end(), right_table.begin(), right_table.end(),first);
+    }
+}
+
+
+/*
+ * Bubble Sort Template
+ */
+template < typename BS > void Bubble_Sort(BS *A, int N ) {
+    for(int i = 0 ; i < N ; i++ )
+    {
+        for(int j=i+1 ; j < N ; j++ ) {
+            if(A[j] < A[i] ) {
+                int temp = A[i] ;
+                A[i] = A[j] ;
+                A[j] = temp ;
+            }
+        }
+    }
+}
+
+
 int main () {
     cout << "Project 8" << endl;
 
@@ -72,4 +129,6 @@ int main () {
     }
 
     cout << "\n\n- - - - - - - -\n\n" << endl;
+
+
 }
